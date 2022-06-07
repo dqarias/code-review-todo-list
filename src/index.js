@@ -8,9 +8,8 @@ import {
 import statusTodo from './modules/status.js';
 
 const todos = document.querySelector('.todos__list');
-const btnAdd = document.querySelector('#btn-add');
-const todoAdd = document.querySelector('#todo-add');
 const btnRemoveAll = document.querySelector('.btn-remove-all');
+const formAdd = document.querySelector('.todos__add');
 
 
 const todoHtml = (todo) => {
@@ -101,13 +100,7 @@ btnRemoveAll.addEventListener('click', () => {
   deleteAllTodo();
 });
 
-todoAdd.addEventListener('keyup', (e) => {
-  if (e.key === 'Enter') {
-    addTodo();
-  }
-});
-
-btnAdd.addEventListener('click', () => {
+formAdd.addEventListener('click', () => {
   addTodo();
 }); 
 
