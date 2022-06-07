@@ -12,28 +12,31 @@ const btnAdd = document.querySelector('#btn-add');
 const todoAdd = document.querySelector('#todo-add');
 const btnRemoveAll = document.querySelector('.btn-remove-all');
 
+
 const todoHtml = (todo) => {
+
+  let attClass='';
+  let marked='';
+
   if (todo.completed) {
-    todos.innerHTML += `<li id="${todo.index}" class="todo_list checked__list">
-    <div>
-       <input class="checkbox-input" type="checkbox" id="todo${todo.index}" name="todo${todo.index}" checked>
+    attClass = 'todo_list checked__list';
+    marked = 'checked';
+    } else {
+      attClass = 'todo_list';
+    marked = '';
+    }
+
+   todos.innerHTML += `<li id="${todo.index}" class="${attClass}">
+   
+     <div>
+       <input class="checkbox-input" type="checkbox" id="todo${todo.index}" name="todo${todo.index}" ${marked}>
        <label for="todo${todo.index}">${todo.description}</label>
-    </div>
-    <button id="${todo.index}" class="btn btn-remove">
+     </div>
+    <button type="submit" id="${todo.index}" class="btn btn-remove">
        <i class="fa-solid fa-trash"></i>
     </button>
+  
    </li>`;
-  } else {
-    todos.innerHTML += `<li id="${todo.index}" class="todo_list">
-    <div>
-       <input class="checkbox-input" type="checkbox" id="todo${todo.index}" name="todo${todo.index}">
-       <label for="todo${todo.index}">${todo.description}</label>
-    </div>
-    <button id="${todo.index}" class="btn btn-remove">
-       <i class="fa-solid fa-trash"></i>
-    </button>
-   </li>`;
-  }
 
   // Add Event Listener for edit each single todo
 
@@ -106,6 +109,6 @@ todoAdd.addEventListener('keyup', (e) => {
 
 btnAdd.addEventListener('click', () => {
   addTodo();
-});
+}); 
 
 export { renderTodo, todoHtml };
