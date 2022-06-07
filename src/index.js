@@ -11,21 +11,19 @@ const todos = document.querySelector('.todos__list');
 const btnRemoveAll = document.querySelector('.btn-remove-all');
 const formAdd = document.querySelector('.todos__add');
 
-
 const todoHtml = (todo) => {
-
-  let attClass='';
-  let marked='';
+  let attClass = '';
+  let marked = '';
 
   if (todo.completed) {
     attClass = 'todo_list checked__list';
     marked = 'checked';
-    } else {
-      attClass = 'todo_list';
+  } else {
+    attClass = 'todo_list';
     marked = '';
-    }
+  }
 
-   todos.innerHTML += `<li id="${todo.index}" class="${attClass}">
+  todos.innerHTML += `<li id="${todo.index}" class="${attClass}">
    
      <div>
        <input class="checkbox-input" type="checkbox" id="todo${todo.index}" name="todo${todo.index}" ${marked}>
@@ -102,6 +100,6 @@ btnRemoveAll.addEventListener('click', () => {
 
 formAdd.addEventListener('click', () => {
   addTodo();
-}); 
+});
 
 export { renderTodo, todoHtml };
